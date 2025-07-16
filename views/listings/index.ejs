@@ -54,6 +54,38 @@
     </div>
   </div>
 
+  <!-- Mobile Filters Modal Overlay and Dropdown -->
+  <div id="mobileFiltersOverlay" class="mobile-filters-overlay" style="display:none;"></div>
+  <div class="mobile-filters-wrapper d-block d-md-none" style="margin-bottom: 1rem;">
+    <button class="btn btn-danger w-100" id="mobileFiltersBtn" type="button" style="font-weight:600;">
+      <i class="fa-solid fa-sliders"></i> Filters
+    </button>
+    <div id="mobileFiltersDropdown" class="card shadow-sm p-3" style="display:none;">
+      <button id="closeMobileFilters" type="button" style="position:absolute;top:12px;right:18px;background:none;border:none;font-size:1.5rem;color:#888;z-index:10;">&times;</button>
+      <div class="row g-2">
+        <% filters.forEach(filter=> { %>
+          <div class="col-4 text-center mb-2">
+            <div class="icon-wrapper mb-1">
+              <i class="fa-solid <%= filter.icon %> fa-lg"></i>
+            </div>
+            <p style="font-size:0.85rem; margin-bottom:0;">
+              <%= filter.label %>
+            </p>
+          </div>
+        <% }); %>
+      </div>
+      <div class="mt-2">
+        <label class="filter-box w-100" for="includeTaxMobile" style="cursor: pointer;">
+          Display total after taxes
+          <div class="switch">
+            <input type="checkbox" id="includeTaxMobile" onchange="toggleTax()" />
+            <span class="slider"></span>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+
   <!-- Listings -->
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-3" id="listingGrid">
     <% for(let listing of allListings) { %>

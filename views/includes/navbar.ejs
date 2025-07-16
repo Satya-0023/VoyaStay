@@ -4,35 +4,77 @@
     color: #000;
     transition: background-color 0.3s ease;
   }
-
   .btn-search:hover {
     background-color: #ff385c;
     color: white;
+  }
+  .navbar-header-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+  }
+  .navbar-logo {
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+  }
+  .navbar-search {
+    flex: 1 1 0%;
+    min-width: 0;
+    max-width: 600px;
+  }
+  @media (max-width: 600px) {
+    .navbar-header-row {
+      gap: 0.5rem;
+    }
+    .navbar-search form {
+      max-width: 100%;
+    }
+    .navbar-search input {
+      font-size: 0.98rem;
+      padding: 0.4rem 0.8rem;
+    }
+    .navbar-close-btn {
+      display: block;
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #888;
+      z-index: 10;
+      cursor: pointer;
+    }
+  }
+  @media (min-width: 601px) {
+    .navbar-close-btn {
+      display: none;
+    }
   }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-tertiary sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
+    <div class="navbar-header-row">
+      <a class="navbar-brand navbar-logo" href="/listings"><i class="fa-solid fa-compass"></i></a>
+      <div class="navbar-search w-100">
+        <form class="d-flex" role="search" style="max-width: 500px; width: 100%;">
+          <input class="form-control me-2 rounded-pill" type="search" placeholder="Search destinations" aria-label="Search">
+          <button class="btn btn-search rounded-pill" type="submit">Search</button>
+        </form>
+      </div>
+      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse position-relative" id="navbarNav">
+      <button class="navbar-close-btn" id="navbarCloseBtn" type="button" aria-label="Close">&times;</button>
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link" href="/listings">Explore</a>
         </li>
-      </ul>
-
-      <!-- Search bar -->
-      <form class="d-flex mx-auto" role="search" style="max-width: 500px; width: 100%;">
-        <input class="form-control me-2 rounded-pill" type="search" placeholder="Search destinations" aria-label="Search">
-        <button class="btn btn-search rounded-pill" type="submit">Search</button>
-      </form>
-
-      <ul class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Add New</a>
         <% if(!currentUser) { %>
           <li class="nav-item">
@@ -51,3 +93,19 @@
     </div>
   </div>
 </nav>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var closeBtn = document.getElementById('navbarCloseBtn');
+    var navbarNav = document.getElementById('navbarNav');
+    if (closeBtn && navbarNav) {
+      closeBtn.addEventListener('click', function() {
+        if (window.bootstrap && window.bootstrap.Collapse) {
+          var collapse = window.bootstrap.Collapse.getOrCreateInstance(navbarNav);
+          collapse.hide();
+        } else {
+          navbarNav.classList.remove('show');
+        }
+      });
+    }
+  });
+</script>

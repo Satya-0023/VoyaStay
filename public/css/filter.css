@@ -131,3 +131,110 @@
     input:checked+.slider:before {
       transform: translateX(20px);
     }
+
+@media (max-width: 600px) {
+  .filter-bar-wrapper {
+    display: none !important;
+  }
+  .mobile-filters-wrapper {
+    display: block !important;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  #mobileFiltersBtn {
+    font-size: 1rem;
+    padding: 0.6rem 0;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+  .filter-bar {
+    gap: 0.5rem;
+    padding: 0 0.2rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+  .filter-item {
+    min-width: 54px;
+    max-width: 70px;
+    font-size: 0.7rem;
+    padding: 0.2rem 0;
+  }
+  .icon-wrapper {
+    padding: 6px;
+  }
+  .filter-item p {
+    font-size: 0.68rem;
+    word-break: break-word;
+  }
+  .filter-controls {
+    gap: 0.3rem;
+  }
+  .filter-box {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    gap: 0.3rem;
+  }
+  .mobile-filters-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.32);
+    z-index: 1999;
+  }
+  #mobileFiltersDropdown {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95vw;
+    max-width: 420px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 1.1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    z-index: 2000;
+    padding: 1.2rem 1rem 1rem 1rem;
+    border: 1px solid #eee;
+  }
+  #closeMobileFilters {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #888;
+    z-index: 10;
+    cursor: pointer;
+  }
+  #mobileFiltersDropdown .icon-wrapper {
+    margin: 0 auto 0.3rem auto;
+    background: #f7f7f7;
+    width: 2.3rem;
+    height: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+  }
+  #mobileFiltersDropdown .row {
+    margin-bottom: 0.5rem;
+  }
+  #mobileFiltersDropdown .col-4 p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    word-break: break-word;
+  }
+  #mobileFiltersDropdown .filter-box {
+    margin-top: 0.7rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
