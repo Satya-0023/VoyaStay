@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate') %>
+<body>
+    <div style="max-width: 400px; margin: 60px auto; padding: 24px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);">
+        <h2 style="text-align:center; margin-bottom: 24px;">Log In</h2>
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+            <div style="margin-bottom:16px;">
+                <label for="username" style="display:block; margin-bottom:6px;">Username</label>
+                <input type="text" id="username" name="username" class="form-control" required style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                <div class="valid-feedback">Username looks good!</div>
+                <div class="invalid-feedback">Please enter your username.</div>
+            </div>
+            <div style="margin-bottom:24px;">
+                <label for="password" style="display:block; margin-bottom:6px;">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                <div class="invalid-feedback">Please enter your password.</div>
+            </div>
+            <button type="submit" style="width:100%; padding:10px; background:#007bff; color:#fff; border:none; border-radius:4px; font-size:16px;">Log In</button>
+        </form>
+        <div style="text-align:center; margin-top:18px;">
+            Don't have an account? <a href="/signup">Sign up</a>
+        </div>
+    </div>
+</body>

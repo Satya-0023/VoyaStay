@@ -1,0 +1,98 @@
+<% layout('layouts/boilerplate') %>
+
+  <!-- Filter Controls -->
+  <div class="filter-bar-wrapper">
+    <!-- Left Arrow -->
+    <button class="filter-scroll-btn" onclick="scrollFilters(-300)">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Scrollable Filters -->
+    <div class="filter-bar">
+      <% const filters=[ { icon: "fa-fire" , label: "Trending" }, { icon: "fa-tractor" , label: "Farms" }, {
+        icon: "fa-bed" , label: "Rooms" }, { icon: "fa-mountain-sun" , label: "Views" }, { icon: "fa-landmark" ,
+        label: "Historic" }, { icon: "fa-person-swimming" , label: "Surfing" }, { icon: "fa-water-ladder" ,
+        label: "Pools" }, { icon: "fa-umbrella-beach" , label: "Beach" }, { icon: "fa-campground" , label: "Cabins" }, {
+        icon: "fa-bolt" , label: "OMG!" }, { icon: "fa-house-flood-water" , label: "Lakefront" }, { icon: "fa-tree" ,
+        label: "Nature" }, { icon: "fa-city" , label: "Urban stays" }, { icon: "fa-mug-hot" , label: "B&B" }, {
+        icon: "fa-snowflake" , label: "Arctic" }, { icon: "fa-dog" , label: "Pet Friendly" }, { icon: "fa-tent" ,
+        label: "Camping" } ]; %>
+
+        <% filters.forEach(filter=> { %>
+          <div class="filter-item">
+            <div class="icon-wrapper mb-1">
+              <i class="fa-solid <%= filter.icon %> fa-lg"></i>
+            </div>
+            <p>
+              <%= filter.label %>
+            </p>
+          </div>
+          <% }); %>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="filter-scroll-btn" onclick="scrollFilters(300)">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Filter Controls -->
+    <div class="filter-controls">
+      <!-- Filter Box Button -->
+      <div class="filter-box">
+        <i class="fa-solid fa-sliders"></i>
+        Filters
+      </div>
+
+      <!-- Toggle Box Button -->
+      <label class="filter-box" for="includeTax" style="cursor: pointer;">
+        Display total after taxes
+        <div class="switch">
+          <input type="checkbox" id="includeTax" onchange="toggleTax()" />
+          <span class="slider"></span>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Listings -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-3" id="listingGrid">
+    <% for(let listing of allListings) { %>
+      <div class="col listing-item" data-base-price="<%= listing.price %>">
+        <a href="/listings/<%= listing._id %>" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow-sm">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image"
+              style="height: 16rem; object-fit: cover;">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="card-title">
+                <%= listing.title %>
+              </h5>
+              <p class="text-muted mb-1">
+                <%= listing.location %>, <%= listing.country %>
+              </p>
+              <span class="badge bg-danger mt-2 price-badge">
+                ₹ <%= listing.price.toLocaleString("en-IN") %>/night
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% } %>
+  </div>
+
+  <script>
+    function scrollFilters(amount) {
+      const filterBar = document.querySelector('.filter-bar');
+      filterBar.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    function toggleTax() {
+      const includeTax = document.getElementById('includeTax').checked;
+      const listings = document.querySelectorAll('.listing-item');
+      listings.forEach(item => {
+        const basePrice = parseFloat(item.dataset.basePrice);
+        const finalPrice = includeTax ? basePrice * 1.18 : basePrice;
+        const badge = item.querySelector('.price-badge');
+        badge.innerText = `₹ ${Math.round(finalPrice).toLocaleString("en-IN")}/night`;
+      });
+    }
+  </script>

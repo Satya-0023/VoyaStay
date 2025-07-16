@@ -1,0 +1,133 @@
+ .filter-bar-wrapper {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #ddd;
+      gap: 0.75rem;
+    }
+
+    .filter-scroll-btn {
+      border: none;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .filter-bar {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      flex-grow: 1;
+      scroll-behavior: smooth;
+      padding: 0 0.5rem;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-item {
+      flex: 0 0 auto;
+      text-align: center;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.25s ease;
+    }
+
+    .filter-item:hover {
+      opacity: 0.85;
+      border-bottom: 2px solid #fe424d;
+    }
+
+    .icon-wrapper {
+      background-color: #f7f7f7;
+      padding: 10px;
+      border-radius: 50%;
+      transition: background-color 0.2s ease;
+    }
+
+    .filter-item:hover .icon-wrapper {
+      background-color: #ffece7;
+    }
+
+    .filter-item i {
+      color: #555;
+    }
+
+    .filter-item p {
+      font-size: 0.75rem;
+      color: #444;
+      margin-bottom: 0;
+    }
+
+    /* Filter + Toggle Box Buttons */
+    .filter-controls {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .filter-box {
+      border: 1px solid #ccc;
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      background: white;
+      cursor: pointer;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 42px;
+      height: 22px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: #007bff;
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(20px);
+    }

@@ -1,0 +1,53 @@
+<style>
+  .btn-search {
+    background-color: #e0e0e0;
+    color: #000;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-search:hover {
+    background-color: #ff385c;
+    color: white;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-tertiary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Explore</a>
+        </li>
+      </ul>
+
+      <!-- Search bar -->
+      <form class="d-flex mx-auto" role="search" style="max-width: 500px; width: 100%;">
+        <input class="form-control me-2 rounded-pill" type="search" placeholder="Search destinations" aria-label="Search">
+        <button class="btn btn-search rounded-pill" type="submit">Search</button>
+      </form>
+
+      <ul class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Add New</a>
+        <% if(!currentUser) { %>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/login"><b>Login</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          </li>
+        <% } %>
+        <% if(currentUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><b>Logout</b></a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
