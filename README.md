@@ -12,7 +12,7 @@ A beautiful, responsive web app for discovering and listing unique places to sta
 
 ## 🚀 Live Demo
 
-Check out the live app here: [https://voyastay.onrender.com/listings](https://voyastay.onrender.com)
+Check out the live app here: [https://voyastay.onrender.com](https://voyastay.onrender.com)
 
 ---
 
