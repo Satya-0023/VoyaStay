@@ -1,6 +1,115 @@
 <% layout('layouts/boilerplate') %>
-<!-- this is use for the boilerplate layout to show the common header and footer -->
-  <body>
-    <h1>Welcome to the travel web page</h1>
-</body>
-</html>
+
+<style>
+  :root {
+    --primary-color: #fe424d;
+    --primary-dark: #d12b3a;
+    --light-overlay: rgba(30, 30, 30, 0.55);
+    --text-light: #fff;
+    --text-subtle: #ffd6d6;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  }
+
+  .home-hero {
+    min-height: 75vh;
+    background: linear-gradient(var(--light-overlay), var(--light-overlay)), 
+                url('/images/hero-bg.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+    animation: fadeIn 1.2s ease-out;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: var(--shadow);
+    margin: 3rem auto;
+    max-width: 1000px;
+    backdrop-filter: blur(3px);
+  }
+
+  .home-hero .tagline {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .home-hero .logo {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .home-hero h1 {
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .home-hero p.lead {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+  }
+
+  .home-hero .btn-danger {
+    background: var(--primary-color);
+    border: none;
+    font-weight: 600;
+    font-size: 1.15rem;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 18px rgba(254, 66, 77, 0.25);
+    transition: all 0.25s ease;
+  }
+
+  .home-hero .btn-danger:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 24px rgba(254, 66, 77, 0.35);
+    transform: translateY(-2px);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 600px) {
+    .home-hero {
+      min-height: 65vh;
+      padding: 1.2rem;
+      border-radius: 1rem;
+      margin: 1rem;
+    }
+    .home-hero .logo {
+      font-size: 2.5rem;
+    }
+    .home-hero h1 {
+      font-size: 1.7rem;
+    }
+    .home-hero p.lead {
+      font-size: 1rem;
+    }
+    .home-hero .btn-danger {
+      font-size: 1rem;
+      padding: 0.7rem 1.5rem;
+    }
+  }
+</style>
+
+<section class="home-hero">
+  <div class="tagline">Your adventure begins here</div>
+  <div class="logo">
+    <i class="fa-solid fa-compass"></i>
+  </div>
+  <h1>Welcome to VoyaStay</h1>
+  <p class="lead">Discover unique places to stay and make your next journey unforgettable.</p>
+  <a href="/listings" class="btn btn-danger">Explore Listings</a>
+</section>

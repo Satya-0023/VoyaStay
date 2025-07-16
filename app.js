@@ -91,6 +91,13 @@ app.use((req, res, next) => {
   next();
 });
 
+
+
+app.get("/", (req, res) => {
+  res.render("listings/home.ejs");
+});
+
+
 app.use("/listings" , listingsRouter); // Use the listings router for all /listings routes
 app.use("/listings/:id/reviews", reviewsRouter); // Use the review router for all /listings/:id/reviews routes
 app.use("/", userRouter); // Use the user router for all /users routes
