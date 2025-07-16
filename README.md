@@ -8,12 +8,21 @@ A beautiful, responsive web app for discovering and listing unique places to sta
 
 - 🏠 Browse and search unique listings from around the world
 - 📱 Fully responsive design for mobile and desktop
-- 🔍 Powerful search bar always accessible
-- 🗂️ Filter listings by category with a modern mobile modal
 - 💬 Leave reviews and ratings for listings
 - 👤 User authentication (sign up, login, logout)
 - 🖼️ Add new listings with images
 - 🌟 Modern, attractive UI with custom navigation and footer
+- 🔒 Secure authentication and user management
+
+---
+
+## 🚧 Planned Features
+
+- 🔍 **Powerful Search Bar:** Instantly find listings by location, name, or keyword (coming soon)
+- 🗂️ **Advanced Filtering:** Filter listings by price, amenities, and more (coming soon)
+- 🗺️ Interactive map view for listings
+- 📅 Booking and availability calendar
+- 📧 Email notifications and messaging
 
 ---
 
