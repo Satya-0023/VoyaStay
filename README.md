@@ -4,6 +4,12 @@ A beautiful, responsive web app for discovering and listing unique places to sta
 
 ---
 
+## 🚀 Live Demo
+
+Check out the live app here: [https://wanderlust-2mwj.onrender.com/listings](https://wanderlust-2mwj.onrender.com/listings)
+
+---
+
 ## ✨ Features
 
 - 🏠 Browse and search unique listings from around the world
