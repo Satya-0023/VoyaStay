@@ -8,7 +8,7 @@ const { isLoggedIn, isOwner, validatelisting } = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
 const multer = require("multer");
 const { cloudinary, storage } = require("../cloudconfig.js");
-const upload = multer({ storage }); // Configure multer to store files in the 'uploads' directory
+const upload = multer({ storage });
 
 router
     .route("/")
@@ -16,7 +16,7 @@ router
     .post( isLoggedIn,upload.single('listing[image]'),validatelisting, wrapAsync(listingController.createListing));
 
 router.get("/new", isLoggedIn, listingController.renderNewForm);
-//keep the new route above this bcz it got confuse for /new it search like id 
+
 router
     .route("/:id")
     .get( wrapAsync(listingController.renderShowForm))

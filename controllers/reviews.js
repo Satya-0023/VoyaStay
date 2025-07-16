@@ -3,7 +3,7 @@ const ExpressError = require("../utils/ExpressError.js");
 const Listing = require("../models/listing.js");
 
 module.exports.createReview = async (req, res) => {
-    const { id } = req.params; // id is the listingId from the merged params so we have to use mergeparams at the top to access the id of the listings
+    const { id } = req.params;
     const listing = await Listing.findById(id).populate("reviews");
     if (!listing) throw new ExpressError(404, "Listing Not Found");
 
@@ -18,7 +18,7 @@ module.exports.createReview = async (req, res) => {
 
     await newReview.save();
 
-    listing.reviews.push(newReview._id); // push ObjectId
+    listing.reviews.push(newReview._id);
     await listing.save();
     req.flash("success", "New Review Created!");
     res.redirect(`/listings/${id}`);
