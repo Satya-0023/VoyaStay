@@ -4,6 +4,12 @@ A beautiful, responsive web app for discovering and listing unique places to sta
 
 ---
 
+## ❓ Why the name VoyaStay?
+
+**VoyaStay** is a blend of the words **"voyage"** (meaning a journey or travel) and **"stay"** (a place to rest or lodge). The name reflects the platform’s mission: helping travelers find unique and memorable places to stay on their journeys. It’s modern, easy to remember, and perfectly captures the spirit of adventure and comfort that the site offers.
+
+---
+
 ## 🚀 Live Demo
 
 Check out the live app here: [https://wanderlust-2mwj.onrender.com/listings](https://wanderlust-2mwj.onrender.com/listings)
