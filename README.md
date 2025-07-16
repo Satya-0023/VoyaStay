@@ -1,6 +1,6 @@
-# 🌍 Wanderlust
+# 🌍 VoyaStay
 
-A beautiful, responsive web app for discovering and listing unique places to stay around the world. Built with Node.js, Express, EJS, and Bootstrap, Wanderlust offers a seamless experience on both desktop and mobile devices.
+A beautiful, responsive web app for discovering and listing unique places to stay around the world. Built with Node.js, Express, EJS, and Bootstrap, VoyaStay offers a seamless experience on both desktop and mobile devices.
 
 ---
 
@@ -56,8 +56,8 @@ Check out the live app here: [https://wanderlust-2mwj.onrender.com/listings](htt
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/Satya-0023/WanderLust.git
-   cd WanderLust
+   git clone https://github.com/Satya-0023/VoyaStay.git
+   cd VoyaStay
    ```
 2. **Install dependencies:**
    ```sh
